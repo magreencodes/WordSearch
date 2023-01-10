@@ -1,4 +1,6 @@
 #clear output function when the user finds a word- clear()
+#use dictionary for accounts and for the set words for each topic
+#random.choice(string.ascii_uppercase)
 
 import string 
 import random
@@ -13,7 +15,7 @@ def setup():
 	for i in range(height):
 		grid.append([])
 		for j in range(width):
-			grid[i].append(random.choice(string.ascii_uppercase))
+			grid[i].append('*')
 
 def display():
 	for row in grid:
@@ -24,45 +26,35 @@ def display():
 setup()
 
 
-# def place_word(word):
-# 	for i in range(len(word)):
-# 		for row in grid:
-# 			if row - len(word) < 0: 
-# 				grid[random.randrange(row)][i] = word[::-1][i]
-# 			else:
-# 				False 
 
-# place_word("cat")
+def place_horizontal(word):
+	row = random.randint(0, height-1)
+	col = random.randint(0, width-len(word))
+	for i in range(len(word)):
+		grid[row][col+i]= word[i]
+		
+# place_hori('cat')
 
+
+def place_vertical(word):
+	row = random.randint(0, height-1)
+	col = random.randint(0, width-len(word))
+	for i in range(len(word)):
+		grid[col+i][row]= word[i]
+
+
+	
+def place_diagonal(word):
+	row = random.randint(0, height-1)
+	col = random.randint(0, width-len(word))
+	for i in range(len(word)):
+					
+						
+place_vertical('dog')
+place_horizontal('cat')
+# place_diagonal('bird')
 display()
 
-def place_word(word):
-	for i in range(len(word)):
-		for row in range(0, width):
-			grid[random.randrange(width-len(word))][i]= word[i]
-# def place_word(word):
-# 	rand_num= [1,2,3,4]
-# 	rand_num = random.choice(directions)
-# 	if directions == 1:
-# 		for i in range(height):
-# 			if height-len(word) > 0:
-# 				grid[0][1] = word[i]
-# 	if directions == 2:
-# 		for i in range(height):
-# 			if height-len(word) > 0:
-# 				grid[0][1] = word[::-1][i]
-# 	if directions == 3:
-# 		for i in range(width):
-# 			if width-len(word) > 0:
-# 				grid[1][0] = word[i]
-# 		if directions == 4:
-# 				for i in range(width):
-# 					if width-len(word) > 0:
-# 						grid[1][0] = word[::-1][i]
-						
-						
-
-place_word('dog')
 
 
  # [1,1]- going diagonally 
@@ -112,4 +104,3 @@ def main1():
 	
 
 # main1()
-
