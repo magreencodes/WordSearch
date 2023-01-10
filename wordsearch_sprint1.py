@@ -37,24 +37,28 @@ setup()
 display()
 
 def place_word(word):
-	rand_num= [1,2,3,4]
-	rand_num = random.choice(directions)
-	if directions == 1:
-		for i in range(height):
-			if height-len(word) > 0:
-				grid[0][1] = word[i]
-	if directions == 2:
-		for i in range(height):
-			if height-len(word) > 0:
-				grid[0][1] = word[::-1][i]
-	if directions == 3:
-		for i in range(width):
-			if width-len(word) > 0:
-				grid[1][0] = word[i]
-		if directions == 4:
-				for i in range(width):
-					if width-len(word) > 0:
-						grid[1][0] = word[::-1][i]
+	for i in range(len(word)):
+		for row in range(0, width):
+			grid[random.randrange(width-len(word))][i]= word[i]
+# def place_word(word):
+# 	rand_num= [1,2,3,4]
+# 	rand_num = random.choice(directions)
+# 	if directions == 1:
+# 		for i in range(height):
+# 			if height-len(word) > 0:
+# 				grid[0][1] = word[i]
+# 	if directions == 2:
+# 		for i in range(height):
+# 			if height-len(word) > 0:
+# 				grid[0][1] = word[::-1][i]
+# 	if directions == 3:
+# 		for i in range(width):
+# 			if width-len(word) > 0:
+# 				grid[1][0] = word[i]
+# 		if directions == 4:
+# 				for i in range(width):
+# 					if width-len(word) > 0:
+# 						grid[1][0] = word[::-1][i]
 						
 						
 
