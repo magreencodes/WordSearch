@@ -14,7 +14,7 @@ def setup():
 	for i in range(height):
 		grid.append([])
 		for j in range(width):
-			grid[i].append('*')
+			grid[i].append(random.choice(string.ascii_uppercase))
 
 def display():
 	for row in grid:
