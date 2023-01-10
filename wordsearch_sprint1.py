@@ -1,4 +1,3 @@
-#using these later on with random.choice(string.ascii_uppercase)
 #clear output function when the user finds a word- clear()
 
 import string 
