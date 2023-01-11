@@ -17,48 +17,55 @@ def setup():
 		for j in range(width):
 			grid[i].append('*')
 
+
 def display():
 	for row in grid:
 		for col in row:
 			print(col," ", end= "" )
 		print()
 
-setup()
 
+
+def replace_blanks():
+	for row in grid:
+			grid.replace('*', random.choice(string.ascii_uppercase) )
 
 
 def place_horizontal(word):
+	word = random.choice([word, word[::-1]])
 	row = random.randint(0, height-1)
 	col = random.randint(0, width-len(word))
 	for i in range(len(word)):
 		grid[row][col+i]= word[i]
-		
-# place_hori('cat')
+
 
 
 def place_vertical(word):
+	word = random.choice([word, word[::-1]])
 	row = random.randint(0, height-1)
 	col = random.randint(0, width-len(word))
 	for i in range(len(word)):
 		grid[col+i][row]= word[i]
 
 
-	
+
 def place_diagonal(word):
+	word = random.choice([word, word[::-1]])
 	row = random.randint(0, height-1)
 	col = random.randint(0, width-len(word))
 	for i in range(len(word)):
-					
-						
+		grid[col+i][row]= word[i]	
+		row+=1
+
+setup()
+
 place_vertical('dog')
 place_horizontal('cat')
-# place_diagonal('bird')
+place_diagonal('bird')
 display()
-
-
+# replace_blanks()
 
  # [1,1]- going diagonally 
-
 
 # class Board:
 # 	def __init__(self, grid, height=10, width=11):
@@ -79,19 +86,7 @@ display()
 # 			for col in row:
 # 				print(col," ", end= "" )
 # 			print()
-
-		#def place_word(word):
-			# for i in range(len(word)):
-		# rowsize= self.width - len(word)
-		# colsize= self.height - len(word)
-
-	#WORK IN PROGRESS 
-	# def fit_word(self, word):
-	# 	if direction[0] == 0: #means that the word is not moving to the right if true then that's the width 
-	# 	else:
-	# 		self.width - len(word)
 				
-
 		
 def main1():
 
@@ -104,3 +99,7 @@ def main1():
 	
 
 # main1()
+
+		
+#know where the words are- starting point and direction- later on when you check ud they got all of the words 
+#idea for later: list of where the words are on the grid check to see for word a boolean- need to store 
