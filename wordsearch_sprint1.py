@@ -85,10 +85,8 @@ def place(word,grid):
 
 		# print [row],[col]
 
-		for i in rowrange(0,len(word)):
-			grid[col + word_directions[1]*i][row + word_directions[0]*i] = word[i]
-
-
+		# for i in rowrange(0,len(word)):
+		# 	grid[col + word_directions[1]*i][row + word_directions[0]*i] = word[i]
 
 list_wrd = ['lists', 'shelve', 'variable']
 for word in list_wrd:
@@ -131,9 +129,6 @@ def new_user():
 				users.append(create_username) 
 				pswd.append(create_password)
 				accounts[account_num] = [create_username, create_password, list_wrd]
-				print(accounts)
-				print(accounts.get(account_num))
-				
 				break	
 			else:
 				print('Passwords Do Not Match! Try again.')
@@ -173,21 +168,32 @@ def menu():
 			old_user()
 		elif response == 'no':
 			new_user()
-			
-		response = input('READY TO PLAY? yes or no: ')
-		if response == 'yes':
-			Board()
-			place()
-			print('_'* 15)
-			print(list_wrds)
-			game_countdown(300)
 
-			enter_word = input('Enter word: ')
-			for enter_word in list_wrds:
-				'Great job!'
+		print(" 1. View Account 2.Play Game 3. Quit")
+		choice = input('What would you like to do?')
+
+		if choice == '1':
+			print(accounts)
+			print(accounts.get(account_num))
+
+		if choice == '2':
+			response = input('READY TO PLAY? yes or no: ')
+			if response == 'yes':
+				Board()
+				place()
+				print('_'* 15)
+				print(list_wrds)
+				game_countdown(300)
+	
+				enter_word = input('Enter word: ')
+				for enter_word in list_wrds:
+					'Great job!'
 			
 		elif response == 'no':
 			while response != 'no':
 				menu()
+				
+		if choice == '3':
+			menu()
 							
 menu()	
